@@ -1,0 +1,22 @@
+from pytube import YouTube
+from sys import argv
+# to access the youtube link which you want ot download , this project  from cmd line prompt .to run it from cmd we use argv
+# !st argument be always aprogram name
+
+
+link = argv[1] #the 1st argument when we run this program
+youtube = YouTube(link) #creating youtube object from this link
+
+# some info about vedio
+print("title:",youtube.title)
+print("Views on video :",youtube.views)
+
+# output PS C:\Users\Ideapad\OneDrive\Desktop\Python_project\Youtube_Premium> python main.py "https://www.youtube.com/watch?v=EdCyzx1xzFs&list=RDEdCyzx1xzFs&start_radio=1"
+# title: ye chamak ye damak  bhajan (orignal) instagram viral
+# Views on video : 1448605
+
+# download
+youtube_download=youtube.streams.get_highest_resolution()# 4k,1080p
+youtube_download.download('/Users/Ideapad/OneDrive/Desktop/Python_project/Youtube_Premium/Downloaded_vedio') 
+# vedio downloaded
+# you can also downloaded premium vedio by this code
